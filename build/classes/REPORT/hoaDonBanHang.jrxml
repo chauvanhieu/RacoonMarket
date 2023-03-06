@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="250" pageHeight="842" columnWidth="210" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="086f9ea3-0675-4f42-b7a1-be224875a581">
+	<property name="ireport.zoom" value="1.6105100000000012"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="idHoaDon" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="thoiGian" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tenNhanVien" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tenKhachHang" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tenCuaHang" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="diaChiCuaHang" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="soDienThoaiCuaHang" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="soTienGiamGia" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="soTienThanhToan" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select  sanpham.name as 'tensanpham', chitiethoadon.soluong , donvitinh.Name as 'donvitinh', chitiethoadon.giaBan as 'giaban',(chitiethoadon.soluong*chitiethoadon.giaBan) as 'thanhtien' from chitiethoadon 
+join sanpham on sanpham.ID = chitiethoadon.idsanpham
+join donvitinh on donvitinh.id=sanpham.IDDonViTinh
+where chitiethoadon.idhoadon = $P{idHoaDon}]]>
+	</queryString>
+	<field name="tensanpham" class="java.lang.String"/>
+	<field name="soluong" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="donvitinh" class="java.lang.String"/>
+	<field name="giaban" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="thanhtien" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="50" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="210" height="20" uuid="516dc8c3-bd7c-4812-9cff-eb4932a26dda"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Sitka Banner" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tenCuaHang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="20" width="210" height="13" uuid="84818849-1573-4191-876f-12018eb70a47"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Sitka Banner"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{diaChiCuaHang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="33" width="210" height="13" uuid="e50dc633-9440-493b-9ca9-f149c886880f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Sitka Banner"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{soDienThoaiCuaHang}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="49" width="210" height="1" uuid="acc7a68c-23d0-4f6f-8406-7480bde1cc60"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="81" height="20" uuid="083c32e2-084e-4d2d-b3ae-101609410471"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Sitka Small" size="12"/>
+				</textElement>
+				<text><![CDATA[Mã hóa đơn :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="22" width="81" height="20" uuid="e0fc8d10-97fb-42d4-a10b-5732a749411f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Sitka Small" size="12"/>
+				</textElement>
+				<text><![CDATA[Thời gian    :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="44" width="81" height="20" uuid="ff863ce0-d70b-4904-9bd5-38a850f5e4c7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Sitka Small" size="12"/>
+				</textElement>
+				<text><![CDATA[Nhân viên   :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="66" width="81" height="20" uuid="417d8eee-fad8-41f0-b5e7-c22203705894"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Sitka Small" size="12"/>
+				</textElement>
+				<text><![CDATA[Khách hàng :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="96" y="0" width="114" height="20" uuid="091c2f37-6355-4f41-8704-75119e1747f4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Sitka Banner" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{idHoaDon}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="96" y="22" width="114" height="20" uuid="eff39876-4033-4880-a8dd-3f583d221a2e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Sitka Banner" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{thoiGian}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="96" y="44" width="114" height="20" uuid="8edf0862-4abe-41a3-8eb9-7b64955d7434"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Sitka Banner" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tenNhanVien}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="96" y="66" width="114" height="20" uuid="0068263c-d0ee-48be-a568-1f84cc26cdbe"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Sitka Banner" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tenKhachHang}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="88" width="210" height="1" uuid="c7b9f307-74ab-4817-a2a0-2496baff749c"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="32" height="20" uuid="76cf16d0-924e-44c1-bd2a-d0b8438cd945"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="43" y="0" width="32" height="20" uuid="feaf7f3f-d3ad-4778-a9ff-58ccfaadbd59"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ĐVT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="96" y="0" width="32" height="20" uuid="e509cf37-879a-4326-b684-9f30dbd3caa0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="162" y="0" width="32" height="20" uuid="340ae960-402f-4676-b95d-36fa9b7a12ee"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tiền]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="22" width="210" height="1" uuid="8aa73992-5cde-4a63-8790-4e361265ee0e"/>
+				<graphicElement>
+					<pen lineWidth="1.5" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="210" height="15" uuid="0393adf4-840c-496f-9799-a745db9cc503"/>
+				<textElement>
+					<font fontName="Sitka Banner" size="11" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tensanpham}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="97" y="15" width="32" height="20" uuid="cae19f5f-5fd7-445e-8363-9f407f5f9ff7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{soluong}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="36" y="15" width="49" height="20" uuid="d250b812-d3f4-450f-b01b-246283a52db4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{donvitinh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="143" y="15" width="67" height="20" uuid="1b6d7992-da66-47d1-8239-49e413b1a24a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{thanhtien}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="35" width="210" height="1" uuid="ebe79c8e-38ec-4402-8fd2-53340e313817"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="20" width="81" height="20" uuid="5ae10f20-3f00-46c7-95b5-fe4b1ec72812"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Sitka Banner" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tổng hóa đơn :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="81" height="20" uuid="40bddd5a-3faa-481e-9c3d-b7dce1849c55"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Sitka Banner" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tiền giảm giá :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="81" y="0" width="128" height="20" uuid="ce7e56d8-cb29-4bbe-9b9d-c3f8617f2c23"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Sitka Banner" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{soTienGiamGia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="20" width="128" height="20" uuid="b2677dbd-5b06-415e-b4fc-42248fcc2053"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Sitka Banner" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{soTienThanhToan}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="209" height="20" uuid="579bbaab-96b3-4c7a-a394-70997a56d42f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Sitka Banner" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Xin cảm ơn quý khách !]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
