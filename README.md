@@ -20,3 +20,12 @@ Các hình ảnh mô tả về dự án:
 Đây là dự án đầu tiên của tôi khi đang học tại trường cao đẳng FPT Polytechnic Tây Nguyên, dự án thành công và giúp tôi đạt được danh hiệu Ong Vàng học kỳ Fall 2022.
 
 link review youtube: https://youtu.be/ewHDAaDPxHw
+
+# Hướng dẫn cài đặt:
+Hướng dẫn cài đặt phần mềm Racoon Market
+Tải phần mềm Xampp.
+Tạo 1 database mới đặt tên là “racoonmarket” với “UTF8_general_ci”.
+Nhập cơ sở dữ liệu có sẵn từ file “racoonmarket.sql” vào database vừa tạo.
+Chạy file “RacoonMarket_setup.exe”.
+	Username:    admin
+	Password:     123
