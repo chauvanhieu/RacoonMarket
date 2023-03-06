@@ -22,10 +22,14 @@ Các hình ảnh mô tả về dự án:
 link review youtube: https://youtu.be/ewHDAaDPxHw
 
 # Hướng dẫn cài đặt:
-Hướng dẫn cài đặt phần mềm Racoon Market
+Hướng dẫn cài đặt phần mềm Racoon Market 
 Tải phần mềm Xampp.
 Tạo 1 database mới đặt tên là “racoonmarket” với “UTF8_general_ci”.
+
 Nhập cơ sở dữ liệu có sẵn từ file “racoonmarket.sql” vào database vừa tạo.
+
 Chạy file “RacoonMarket_setup.exe”.
+
 	Username:    admin
-	Password:     123
+	
+	Password:    123
